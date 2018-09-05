@@ -1,7 +1,7 @@
 logs
 target
 /node_modules
-/dist
+/dist/public
 /build
 /.gradle
 /.idea
