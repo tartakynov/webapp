@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --dest dist/public client/src/main.js",
-    "build": "vue-cli-service build --dest dist/public client/src/main.js",
+    "serve": "vue-cli-service serve --dest client/dist client/src/main.js",
+    "build": "vue-cli-service build --dest client/dist client/src/main.js",
     "lint": "vue-cli-service lint client/src/main.js"
   },
   "dependencies": {
