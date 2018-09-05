@@ -1,5 +1,9 @@
 logs
 target
+/node_modules
+/dist
+/build
+/.gradle
 /.idea
 /.idea_modules
 /.classpath
@@ -8,8 +12,6 @@ target
 /RUNNING_PID
 
 .DS_Store
-node_modules
-dist
 
 # local env files
 .env.local
