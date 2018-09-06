@@ -1,21 +1,19 @@
-# client
+## Development run
 
-## Project setup
+Run the backend service with
+```
+sbt run
+```
+
+Start the client with
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Build
 
-### Lints and fixes files
+To build the redistributable package run
 ```
-npm run lint
+sbt dist
 ```
