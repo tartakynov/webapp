@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve --dest client/dist client/src/main.js",
     "build": "vue-cli-service build --dest client/dist client/src/main.js",
-    "lint": "vue-cli-service lint client/src/main.js"
+    "lint": "vue-cli-service lint client/src/main.js",
+    "clean": "rimraf client/dist"
   },
   "dependencies": {
     "vue": "^2.5.17"

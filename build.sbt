@@ -1,5 +1,5 @@
 import NativePackagerHelper._
-import NpmBuild.autoImport.npmBuild
+import NpmBuild.autoImport._
 
 name := """webapp"""
 organization := "com.example"

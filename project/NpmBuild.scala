@@ -6,22 +6,29 @@ import scala.sys.process._
 object NpmBuild extends AutoPlugin {
 
   object autoImport {
-    lazy val npmBuild = taskKey[Unit]("Execute frontend scripts")
+    lazy val npmClean = taskKey[Unit]("Clean client dist")
+
+    lazy val npmBuild = taskKey[Unit]("Build client")
   }
 
   import autoImport._
 
+
+  val shell: Seq[String] = Seq("bash", "-c")
+
   override lazy val projectSettings: Seq[Def.Setting[_]] = Seq(
+    npmClean := {
+      (shell :+ "npm run clean") !
+    },
     npmBuild := {
-      val s: TaskStreams = streams.value
-      val shell: Seq[String] = Seq("bash", "-c")
-      val npmInstall: Seq[String] = shell :+ "npm install"
-      val npmBuild: Seq[String] = shell :+ "npm run build"
-      s.log.info("building frontend...")
-      if ((npmInstall #&& npmBuild !) == 0) {
-        s.log.success("frontend build successful!")
+      val s = streams.value
+      val npmRunInstall = shell :+ "npm install"
+      val npmRunBuild = shell :+ "npm run build"
+      s.log.info("building client...")
+      if ((npmRunInstall #&& npmRunBuild !) == 0) {
+        s.log.success("client built successfully!")
       } else {
-        throw new IllegalStateException("frontend build failed!")
+        throw new IllegalStateException("client build failed!")
       }
     }
   )
