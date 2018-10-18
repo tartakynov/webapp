@@ -1,17 +1,23 @@
-import NativePackagerHelper._
 import NpmBuild.autoImport._
+import com.typesafe.sbt.SbtNativePackager.autoImport.NativePackagerHelper._
 
-name := """webapp"""
-organization := "com.example"
-
-version := "1.0-SNAPSHOT"
-
-lazy val root = (project in file(".")).enablePlugins(PlayScala, NpmBuild)
+enablePlugins(PlayScala, NpmBuild)
 
 scalaVersion := "2.12.6"
 
-libraryDependencies += guice
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
+name := "webapp"
+
+organization := "com.example"
+
+// Library dependencies
+libraryDependencies ++= Seq(
+  guice
+)
+
+// Test dependencies
+libraryDependencies ++= Seq(
+  "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2"
+).map(_ % Test)
 
 mappings in Assets ++= contentOf("client/dist")
 
